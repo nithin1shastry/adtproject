@@ -1,0 +1,4 @@
+.submitButton:hover {
+  background: #000000;
+  color: var(--primary);
+}

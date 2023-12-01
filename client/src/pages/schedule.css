@@ -1,0 +1,56 @@
+.schedule .filters {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.schedule .filters li {
+  color: #ffffff;
+  padding: 10px 25px;
+  background: #191919;
+  transition: 0.3s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.schedule .filters li:hover,
+.schedule .filters li.active {
+  background: var(--primary);
+}
+
+/* Add this CSS to your existing schedule.css file */
+
+.schedule .pagination {
+  display: flex;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.schedule .pagination .page-item {
+  margin: 0 5px;
+}
+
+.schedule .pagination .page-link {
+  color: #ffffff;
+  background-color: #191919;
+  border: 1px solid #ffffff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.schedule .pagination .page-link:hover,
+.schedule .pagination .page-link:focus {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.schedule .pagination .page-item.active .page-link {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
