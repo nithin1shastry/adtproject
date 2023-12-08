@@ -11,9 +11,10 @@ function Schedule() {
   const [filters, setFilters] = useState(filterListData);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(18); // Change this value to the number of items per page
+
   const baseURL =
     process.env.NODE_ENV === "production"
-      ? "tvshow/"
+      ? "http://localhost:5000/tvshow/"
       : "http://localhost:5000/tvshow";
   const fetchData = async () => {
     try {
@@ -73,6 +74,31 @@ function Schedule() {
     }
   };
 
+  const handleFilterNetworks = (network) => {
+    setFilters(
+      filterListData.map((filter) => {
+        filter.active = false;
+        if (filter.name === network) {
+          filter.active = true;
+        }
+        return filter;
+      })
+    );
+
+    if (network === "All") {
+      setMovies(data);
+      return;
+    }
+
+    setMovies(
+      data.filter((movie) => {
+        return movie.networks.includes(network); // Assuming 'networks' is an array containing network names
+      })
+    );
+
+    setCurrentPage(1); // Reset to the first page when changing filters
+  };
+
   // Logic for pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -103,7 +129,11 @@ function Schedule() {
                 key={filter._id}
                 className={`${filter.active ? "active" : undefined}`}
                 onClick={() => {
-                  handleFilterMovies(filter.name);
+                  if (filter.isNetwork) {
+                    handleFilterNetworks(filter.name);
+                  } else {
+                    handleFilterMovies(filter.name);
+                  }
                 }}
               >
                 {filter.name}

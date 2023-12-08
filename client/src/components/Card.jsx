@@ -30,7 +30,7 @@ function Card({ movie }) {
   });
   const baseURL =
     process.env.NODE_ENV === "production"
-      ? "tvshow/"
+      ? "http://localhost:5000/tvshow/"
       : "http://localhost:5000/tvshow";
   useEffect(() => {
     if (movieData) {
@@ -394,7 +394,7 @@ function Card({ movie }) {
                 required
               />
               <label htmlFor="genres" className="text-light">
-                tagline
+                genres
               </label>
 
               <input

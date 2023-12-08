@@ -28,7 +28,7 @@ const AddSeriesForm = () => {
 
   const baseURL =
     process.env.NODE_ENV === "production"
-      ? "tvshow/"
+      ? "http://localhost:5000/tvshow/"
       : "http://localhost:5000/tvshow";
   const fetchSeriesData = async () => {
     try {
@@ -349,7 +349,7 @@ const AddSeriesForm = () => {
 
             <div className="row mb-3">
               <label htmlFor="genres" className="text-light">
-                tagline
+                genre
               </label>
               <div className="col-sm-10">
                 <input

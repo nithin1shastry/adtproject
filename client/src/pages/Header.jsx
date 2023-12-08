@@ -28,7 +28,7 @@ function Header({ scroll }) {
   return (
     <header className={`${scroll > 100 ? "scrolled" : undefined}`}>
       <a href="/" className="logo">
-        SeriesMania
+        ShowSuggest
       </a>
       <ul className="nav">
         {navList.map((nav) => (
