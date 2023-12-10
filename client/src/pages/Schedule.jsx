@@ -14,7 +14,7 @@ function Schedule() {
 
   const baseURL =
     process.env.NODE_ENV === "production"
-      ? "http://localhost:5000/tvshow/"
+      ? "https://adt-project-backend-1roo.onrender.com/tvshow/"
       : "http://localhost:5000/tvshow";
   const fetchData = async () => {
     try {
